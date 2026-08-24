@@ -1,9 +1,11 @@
 #include<stdio.h>
-void main(void){
+#include<limits.h>
+
+int main(void){
     int arr[] = {25,30,45,50,55,60,65, 65};
     int length = sizeof(arr) / sizeof(arr[0]);
     int largest = arr[0];
-    int secLar = arr[0];
+    int secLar = INT_MIN;
     for(int i = 0; i < length; i++){
         if (arr[i] > largest){
             largest = arr[i];
@@ -19,6 +21,11 @@ void main(void){
         }
     }
 
-    printf("The second largest element is: %d ", secLar);
+    if(secLar == INT_MIN)
+        printf("No distinct second largest element exist!");
+    else
+        printf("The second largest element is: %d ", secLar);
+
+    return 0;
 
 }
