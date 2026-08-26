@@ -16,6 +16,9 @@
 //        Node c = new Node(30);
 //        head.next = b;
 //        b.next = c;
+
+import java.sql.SQLOutput;
+
 ////        c.next = null;
 //
 //        Node temp = head;
@@ -91,6 +94,35 @@ class LinkedList {
             temp = temp.next;
         }
         temp.next = null;
+    }
+
+    void deleteAtPosition(int position){
+        if(position == 0){
+            head = head.next;
+            return;
+        }
+        int count = 0;
+        Node temp = head;
+        while(count != position-1){
+            temp = temp.next;
+            count++;
+        }
+        temp.next = temp.next.next;
+    }
+
+    void search(int n){
+        Node temp = head;
+        int count = 0, found = 0;
+        while(temp!=null){
+            if(temp.data == n){
+                System.out.println("Element found! Index: " + count);
+                return;
+            }
+            count++;
+            temp = temp.next;
+
+            }
+        System.out.println("Element not found!");
     }
 
     void display() {
